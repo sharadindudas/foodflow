@@ -24,13 +24,13 @@ const useRestaurant = () => {
         } else {
           const json = await response.json();
 
-          const restaurants = json?.data?.cards?.find((x) => x?.card?.card?.id?.includes("restaurant_grid"))?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
+          const restaurants = json?.data?.cards?.find((item) => item?.card?.card?.id?.includes("restaurant_grid"))?.card?.card?.gridElements
+            ?.infoWithStyle?.restaurants;
 
-          const imgCarousel = json?.data?.cards?.find((card) => card?.card?.card?.id?.includes("mind"))?.card?.card?.gridElements?.infoWithStyle
+          const imgCarousel = json?.data?.cards?.find((item) => item?.card?.card?.id?.includes("mind"))?.card?.card?.gridElements?.infoWithStyle
             ?.info;
 
-          const topChains = json?.data?.cards?.find((x) => x?.card?.card?.id?.includes("top_brands"))?.card?.card?.gridElements?.infoWithStyle
+          const topChains = json?.data?.cards?.find((item) => item?.card?.card?.id?.includes("top_brands"))?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants;
 
           setImageCarousel(imgCarousel);

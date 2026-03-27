@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { GoLocation } from "react-icons/go";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,45 +9,71 @@ import { getLocation } from "@/utils/locationSlice";
 const LocationSidebar = () => {
   const [Locations, setLocations] = useState([]);
   const [SearchText, setSearchText] = useState("");
+  const debounceRef = useRef(null);
 
   const dispatch = useDispatch();
   const isLocationSidebarOpen = useSelector((state) => state.toggle.isLocationSidebarOpen);
 
-  const handleSearchLocation = async (e) => {
-    try {
-      setSearchText(e.target.value);
-      if (SearchText.length >= 3) {
-        const response = await fetch(import.meta.env.VITE_BASE_URL + SEARCH_LOCATION_API + SearchText);
-        if (!response.ok) {
-          const err = response.status;
-          throw new err();
-        } else {
+  const handleSearchLocation = (e) => {
+    const value = e.target.value;
+    setSearchText(value);
+
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+
+    debounceRef.current = setTimeout(async () => {
+      try {
+        if (value.length >= 3) {
+          const response = await fetch(import.meta.env.VITE_BASE_URL + SEARCH_LOCATION_API, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              input: value
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+
           const json = await response.json();
           setLocations(json?.data);
+        } else {
+          setLocations([]);
         }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
-    }
+    }, 300);
   };
 
   const handleUserLocation = async (placeid) => {
     try {
-      const response = await fetch(import.meta.env.VITE_BASE_URL + ADDRESS_API + placeid);
+      const response = await fetch(import.meta.env.VITE_BASE_URL + ADDRESS_API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ place_id: placeid })
+      });
+
       if (!response.ok) {
-        const err = response.status;
-        throw new Error(err);
-      } else {
-        const { data } = await response.json();
-        dispatch(
-          getLocation({
-            city: data[0]?.address_components[0]?.short_name,
-            lat: data[0]?.geometry?.location?.lat,
-            lng: data[0]?.geometry?.location?.lng,
-            address: data[0]?.formatted_address
-          })
-        );
+        throw new Error(response.status);
       }
+
+      const { data } = await response.json();
+      dispatch(
+        getLocation({
+          city: data[0]?.address_components[0]?.short_name,
+          lat: data[0]?.geometry?.location?.lat,
+          lng: data[0]?.geometry?.location?.lng,
+          address: data[0]?.formatted_address
+        })
+      );
+
       window.location.reload();
     } catch (err) {
       console.log(err);
