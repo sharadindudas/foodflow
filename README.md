@@ -2,7 +2,7 @@
 
 A modern food ordering web application built with React — delivering a seamless experience with real-time restaurant data, cart management, authentication, and payments.
 
-**Live Demo → [https://spicy-pricey.vercel.app](https://spicy-pricey.vercel.app)**
+**Live Demo → [https://foodflow-remo.vercel.app](https://foodflow-remo.vercel.app)**
 
 ---
 
