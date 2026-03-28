@@ -1,5 +1,6 @@
-build
-coverage
 node_modules
 .git
 dist
+build
+coverage
+public

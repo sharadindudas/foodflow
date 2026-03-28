@@ -1,138 +1,263 @@
-# **🌶️ Spicy Pricey 🌟**
-
-A Swiggy-inspired web application designed to provide a seamless and engaging food ordering experience.
+Here’s your **complete, polished README** with the BFF integration clearly explained and everything structured professionally 👇
 
 ---
 
-## **✨ Features**
+# 🌶️ **FoodFlow 🚀**
 
--   🔐 **Authentication**: Secure Google Login using Firebase Authentication.
--   🥗 **Real-Time API Integration**: Access Swiggy’s live data to explore restaurants, menus, and dishes.
--   🛒 **Cart Functionality**: Add, update, or delete food items in a dynamic cart.
--   ✅ **Checkout System**: A user-friendly checkout page for order management.
--   💳 **Payment Integration**: Razorpay integration (frontend) for smooth payment processing.
--   🛠️ **Proxy Middleware**: Custom middleware to bypass CORS issues with Swiggy’s API.
+> A modern **food ordering web application** delivering a seamless, real-time user experience with authentication, payments, and scalable architecture.
 
 ---
 
-## **🛠️ Tech Stack**
+## ✨ Features
 
--   **Frontend**:
+- 🔐 **Authentication**
+  Secure Google login powered by Firebase Authentication
 
-    -   ⚛️ **React.js**: Responsive and interactive user interface.
-    -   📦 **Redux**: State management for efficient data flow.
-    -   🎨 **ShadCN UI**: Sleek and modern UI components for accessibility and consistency.
-    -   🌈 **Tailwind CSS**: Highly customizable styling with a modern design approach.
+- 🍽️ **Real-Time Data Integration**
+  Fetch and display live restaurant menus and listings
 
--   **Middleware for CORS**:
+- 🛒 **Smart Cart System**
+  Add, update, and remove items dynamically
 
-    -   🌐 **CORS Bypass**: Implemented via a custom proxy middleware.
-    -   Repository: [Food Delivery CORS Middleware](https://github.com/sharadindudas/food-delivery-cors).
+- ✅ **Checkout Experience**
+  Clean and intuitive order summary & checkout flow
 
--   **Authentication**:
+- 💳 **Payment Integration**
+  Razorpay frontend integration for smooth transactions
 
-    -   🔑 **Firebase Authentication**: Secure Google login for user authentication.
-
--   **Payment**:
-    -   💸 **Razorpay Integration (Frontend)**: Simplifies payment handling on the user side.
-
----
-
-## **🚀 Hosted Link**
-
-👉 Access the live version of **Spicy Pricey** here: [🌶️ Spicy Pricey](https://spicy-pricey.sharadindudas.com)
+- 🌐 **API Gateway Integration**
+  Uses a custom Backend-for-Frontend (BFF) proxy to handle API communication and CORS
 
 ---
 
-## **📋 How to Run the Project**
+## 🏗️ Architecture Overview
 
-### **🔧 Prerequisites**
-
--   🖥️ Node.js and npm installed.
--   🔥 Firebase project set up with Google Authentication enabled.
--   💳 Razorpay account for payment integration.
-
-### **⚙️ Steps to Install and Run Locally**
-
-1. **📂 Clone the Repository**
-
-    ```bash
-    git clone https://github.com/sharadindudas/spicy-pricey.git
-    cd spicy-pricey
-    ```
-
-2. **📦 Install Dependencies**
-
-    ```bash
-    npm install
-    ```
-
-3. **📝 Set Up Environment Variables**  
-   Create a `.env` file in the root directory with the following variables:
-
-    ```env
-        VITE_FIREBASE_API=<your-firebase-api-key>
-        VITE_FIREBASE_AUTHDOMAIN=<your-firebase-auth-domain>
-        VITE_PROJECT_ID=<your-firebase-project-id>
-        VITE_STORAGE_BUCKET=<your-firebase-storage-bucket>
-        VITE_MESS_SEND_ID=<your-firebase-messaging-sender-id>
-        VITE_APP_ID=<your-firebase-app-id>
-        VITE_RAZORPAY_KEY_ID=<your-razorpay-key-id>
-        VITE_RAZORPAY_KEY_SECRET=<your-razorpay-key-secret>
-        VITE_BASE_URL=<your-proxy-middleware-base-url>
-    ```
-
-4. **CORS Middleware**:  
-   Clone the CORS middleware repository and follow the instructions provided in the [Food Delivery CORS Middleware](https://github.com/sharadindudas/food-delivery-cors).
-5. **▶️ Start the Development Server**
-
-    ```bash
-    npm run dev
-    ```
-
-6. **🌐 Access the Application**  
-   Open [http://localhost:5173](http://localhost:5173) in your browser.
+```
+Frontend (React + Redux)
+        ↓
+API Gateway BFF (Express Proxy)
+        ↓
+External Food APIs (Swiggy)
+```
 
 ---
 
-## **🌟 Future Enhancements**
+## 🛠️ Tech Stack
 
--   🗃️ Backend integration for storing orders and user history.
--   🔍 Enhanced search and filtering options for restaurants and dishes.
--   📡 Real-time order tracking.
+### Frontend
 
----
+- ⚛️ React.js
+- 📦 Redux
+- 🎨 ShadCN UI
+- 🌈 Tailwind CSS
 
-## **🤝 Contributing**
+### Backend Integration
 
-Contributions are welcome! To contribute:
+- 🌐 Custom API Gateway (BFF Layer)
+- 🔁 Reverse Proxy Middleware
 
-1. 🍴 Fork the repository.
-2. 🔀 Create a feature branch:
-    ```bash
-    git checkout -b feature-name
-    ```
-3. 💾 Commit your changes:
-    ```bash
-    git commit -m "Add feature-name"
-    ```
-4. 📤 Push the branch and create a pull request.
+### Authentication
 
----
+- 🔑 Firebase Authentication
 
-## **📜 License**
+### Payments
 
-This project is licensed under the [MIT License](LICENSE).
+- 💸 Razorpay (Frontend Integration)
 
 ---
 
-## **📞 Contact**
+## 🚀 Live Demo
 
-For queries, feedback, or suggestions, feel free to reach out:
-
--   📧 **Email**: [sharadindudas774@gmail.com](mailto:sharadindudas774@gmail.com)
--   🐙 **GitHub**: [Sharadindu Das](https://github.com/sharadindudas)
+👉 [https://spicy-pricey.vercel.app](https://spicy-pricey.vercel.app)
 
 ---
 
-Elevate your food ordering experience with **🌶️ Spicy Pricey**! 🍽️
+## 📋 Getting Started
+
+### 🔧 Prerequisites
+
+- Node.js & npm / Bun
+- Firebase project (Google Auth enabled)
+- Razorpay account
+
+---
+
+### ⚙️ Installation
+
+```bash
+git clone https://github.com/sharadindudas/foodflow.git
+cd foodflow
+bun install
+```
+
+---
+
+### 📝 Environment Variables
+
+Create a `.env` file:
+
+```env
+VITE_FIREBASE_API=your_key
+VITE_FIREBASE_AUTHDOMAIN=your_domain
+VITE_PROJECT_ID=your_project
+VITE_STORAGE_BUCKET=your_bucket
+VITE_MESS_SEND_ID=your_sender_id
+VITE_APP_ID=your_app_id
+
+VITE_RAZORPAY_KEY_ID=your_key
+VITE_RAZORPAY_KEY_SECRET=your_secret
+
+VITE_BASE_URL=your_api_gateway_url
+```
+
+---
+
+### ▶️ Run App
+
+```bash
+bun run dev
+```
+
+Open → [http://localhost:5173](http://localhost:5173)
+
+---
+
+# 🌐 API Gateway (BFF Integration)
+
+This application uses a custom **Backend-for-Frontend (BFF) API Gateway** to handle all external API communication.
+
+👉 **Backend Repository:**
+[https://github.com/sharadindudas/api-gateway-bff](https://github.com/sharadindudas/api-gateway-bff)
+
+---
+
+## 🧠 Why This Exists
+
+Browsers enforce strict CORS policies, which block direct API calls:
+
+```js
+// ❌ Blocked by CORS
+fetch("https://www.swiggy.com/dapi/restaurants/list/v5");
+```
+
+To solve this, FoodFlow routes all requests through a **BFF proxy layer**.
+
+---
+
+## 🔁 How It Works
+
+```
+React App (FoodFlow)
+        ↓
+API Gateway BFF (Express Server)
+        ↓
+Swiggy APIs
+```
+
+---
+
+## ⚙️ What the BFF Does
+
+- 🔁 Proxies API requests to external services
+- 🌐 Handles CORS restrictions
+- 🕵️ Modifies headers to mimic browser requests
+- 🔀 Supports dynamic routing (no need to define endpoints manually)
+
+---
+
+## 🔌 Example API Flow
+
+### ✅ Frontend Request
+
+```js
+fetch(`${import.meta.env.VITE_BASE_URL}/api/proxy/swiggy/dapi/restaurants/list/v5?lat=22.518&lng=88.3832`);
+```
+
+---
+
+### 🔁 Behind the Scenes
+
+```
+Frontend calls:
+http://localhost:3001/api/proxy/swiggy/...
+
+BFF forwards to:
+https://www.swiggy.com/...
+```
+
+---
+
+## 📦 Running Backend Locally
+
+```bash
+git clone https://github.com/sharadindudas/api-gateway-bff.git
+cd api-gateway-bff
+npm install
+npm run dev
+```
+
+Server runs at:
+
+```
+http://localhost:3001
+```
+
+---
+
+## ⚙️ Frontend Configuration
+
+Set in `.env`:
+
+```env
+VITE_BASE_URL=http://localhost:3001/
+```
+
+---
+
+## 🚀 Production Setup
+
+```env
+VITE_BASE_URL=https://your-api-gateway.onrender.com/
+```
+
+---
+
+## 💡 Why This Matters
+
+This project demonstrates:
+
+- ✅ Real-world **BFF architecture pattern**
+- ✅ Scalable frontend-backend separation
+- ✅ Secure API communication
+- ✅ Industry-level system design
+
+---
+
+## 🤝 Contributing
+
+```bash
+git checkout -b feature-name
+git commit -m "Add feature"
+git push origin feature-name
+```
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🧑‍💻 Author
+
+**Sharadindu Das**
+
+- GitHub: [https://github.com/sharadindudas](https://github.com/sharadindudas)
+- Email: [sharadindudas774@gmail.com](mailto:sharadindudas774@gmail.com)
+
+---
+
+## ⭐ Final Note
+
+> FoodFlow is not just a frontend project — it showcases a **production-grade architecture** using a custom API Gateway (BFF), similar to how large-scale applications handle third-party integrations.

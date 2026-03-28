@@ -11,37 +11,37 @@ import ShimmerMenu from "./components/shimmer/ShimmerMenu";
 import "@/css/index.css";
 
 const appRouter = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
         path: "/",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: (
-                    <Suspense fallback={<ShimmerHome />}>
-                        <Home />
-                    </Suspense>
-                )
-            },
-            {
-                path: "/checkout",
-                element: <Checkout />
-            },
-            {
-                path: "/restaurants/:resId",
-                element: (
-                    <Suspense fallback={<ShimmerMenu />}>
-                        <RestaurantMenu />
-                    </Suspense>
-                )
-            }
-        ],
-        errorElement: <Error />
-    }
+        element: (
+          <Suspense fallback={<ShimmerHome />}>
+            <Home />
+          </Suspense>
+        )
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
+      },
+      {
+        path: "/restaurants/:resId",
+        element: (
+          <Suspense fallback={<ShimmerMenu />}>
+            <RestaurantMenu />
+          </Suspense>
+        )
+      }
+    ],
+    errorElement: <Error />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <Provider store={store}>
-        <RouterProvider router={appRouter} />
-    </Provider>
+  <Provider store={store}>
+    <RouterProvider router={appRouter} />
+  </Provider>
 );

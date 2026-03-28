@@ -6,31 +6,31 @@ import ShimmerHome from "@/components/shimmer/ShimmerHome";
 import useRestaurant from "@/hooks/useRestaurant";
 
 const Home = () => {
-    const { ImageCarousel, TopChains, AllRestaurants, FilteredRestaurants, setFilteredRestaurants } = useRestaurant();
+  const { ImageCarousel, TopChains, AllRestaurants, FilteredRestaurants, setFilteredRestaurants } = useRestaurant();
 
-    const userLocation = useSelector((state) => state.location.userLocation);
+  const userLocation = useSelector((state) => state.location.userLocation);
 
-    if (AllRestaurants.length <= 0) {
-        return <ShimmerHome />;
-    }
+  if (AllRestaurants.length <= 0) {
+    return <ShimmerHome />;
+  }
 
-    return (
-        <div className="container mx-auto mt-24 mb-10 px-2 sm:px-10 overflow-x-hidden">
-            <FoodImageCarouselSection ImageCarousel={ImageCarousel} />
+  return (
+    <div className="container mx-auto mt-24 mb-10 px-2 sm:px-10 overflow-x-hidden">
+      <FoodImageCarouselSection ImageCarousel={ImageCarousel} />
 
-            <TopChainsCarouselSection
-                TopChains={TopChains}
-                userLocation={userLocation}
-            />
+      <TopChainsCarouselSection
+        TopChains={TopChains}
+        userLocation={userLocation}
+      />
 
-            <RestaurantSection
-                AllRestaurants={AllRestaurants}
-                userLocation={userLocation}
-                FilteredRestaurants={FilteredRestaurants}
-                setFilteredRestaurants={setFilteredRestaurants}
-            />
-        </div>
-    );
+      <RestaurantSection
+        AllRestaurants={AllRestaurants}
+        userLocation={userLocation}
+        FilteredRestaurants={FilteredRestaurants}
+        setFilteredRestaurants={setFilteredRestaurants}
+      />
+    </div>
+  );
 };
 
 export default Home;
