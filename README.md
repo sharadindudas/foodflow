@@ -1,7 +1,3 @@
-Here’s your **complete, polished README** with the BFF integration clearly explained and everything structured professionally 👇
-
----
-
 # 🌶️ **FoodFlow 🚀**
 
 > A modern **food ordering web application** delivering a seamless, real-time user experience with authentication, payments, and scalable architecture.
