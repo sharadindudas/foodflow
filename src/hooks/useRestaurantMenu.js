@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
             try {
                 const response = await fetch(
                     import.meta.env.VITE_BASE_URL +
-                        `api/proxy/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`
+                        `api/proxy/swiggy/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`
                 );
                 if (!response.ok) {
                     const err = response.status;
